@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Generator</title>
+</head>
+<body>
+    <h1>Map Generator</h1>
+    <button onclick="generateMap()">Generate Map</button>
+    <div id="map-container">
+        <!DOCTYPE html>
+        <!-- <html> -->
+        <!-- <head> -->
+            <meta charset="UTF-8">
+            <title>Awesome-pyecharts</title>
+                        <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts.min.js"></script>
+                    <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/maps/china.js"></script>
+        
+        <!-- </head> -->
+        <!-- <body> -->
+            <div id="fabf224cd63346a1a96a1f096b41bf2d" class="chart-container" style="width:800px; height:600px; "></div>
+            <script>
+                var chart_fabf224cd63346a1a96a1f096b41bf2d = echarts.init(
+                document.getElementById('fabf224cd63346a1a96a1f096b41bf2d'), 'white', {renderer: 'canvas'});
+                var option_fabf224cd63346a1a96a1f096b41bf2d = {
+                "animation": true,
+                "animationThreshold": 2000,
+                "animationDuration": 1000,
+                "animationEasing": "cubicOut",
+                "animationDelay": 0,
+                "animationDurationUpdate": 300,
+                "animationEasingUpdate": "cubicOut",
+                "animationDelayUpdate": 0,
+                "aria": {
+                    "enabled": false
+                },
+                "color": [
+                    "green",
+                    "#5470c6",
+                    "#91cc75",
+                    "#fac858",
+                    "#ee6666",
+                    "#73c0de",
+                    "#3ba272",
+                    "#fc8452",
+                    "#9a60b4",
+                    "#ea7ccc"
+                ],
+                "series": [
+                    {
+                        "type": "effectScatter",
+                        "coordinateSystem": "geo",
+                        "showEffectOn": "render",
+                        "rippleEffect": {
+                            "show": true,
+                            "brushType": "stroke",
+                            "scale": 2.5,
+                            "period": 4
+                        },
+                        "symbolSize": 12,
+                        "data": [
+                            {
+                                "name": "\u5317\u4eac",
+                                "value": [
+                                    116.407526,
+                                    39.90403,
+                                    "\u9996\u90fd\u673a\u573a/\u5927\u5174\u673a\u573a"
+                                ]
+                            },
+                            {
+                                "name": "\u6df1\u5733",
+                                "value": [
+                                    114.07,
+                                    22.62,
+                                    "\u5b9d\u5b89\u673a\u573a"
+                                ]
+                            }
+                        ],
+                        "label": {
+                            "show": false,
+                            "margin": 8
+                        }
+                    },
+                    {
+                        "type": "lines",
+                        "name": "Airline",
+                        "coordinateSystem": "geo",
+                        "zlevel": 3,
+                        "progressive": 400,
+                        "progressiveThreshold": 3000,
+                        "effect": {
+                            "show": true,
+                            "brushType": "stroke",
+                            "scale": 2.5,
+                            "period": 4,
+                            "color": "blue",
+                            "symbol": "arrow",
+                            "symbolSize": 6
+                        },
+                        "symbol": [
+                            "none",
+                            "arrow"
+                        ],
+                        "polyline": false,
+                        "large": false,
+                        "largeThreshold": 2000,
+                        "symbolSize": 12,
+                        "data": [
+                            {
+                                "name": "\u5317\u4eac->\u6df1\u5733",
+                                "coords": [
+                                    [
+                                        116.407526,
+                                        39.90403
+                                    ],
+                                    [
+                                        114.07,
+                                        22.62
+                                    ]
+                                ]
+                            }
+                        ],
+                        "lineStyle": {
+                            "show": true,
+                            "width": 1,
+                            "opacity": 1,
+                            "curveness": 0.2,
+                            "type": "solid"
+                        },
+                        "label": {
+                            "show": false,
+                            "margin": 8
+                        },
+                        "rippleEffect": {
+                            "show": true,
+                            "brushType": "stroke",
+                            "scale": 2.5,
+                            "period": 4
+                        }
+                    }
+                ],
+                "legend": [
+                    {
+                        "data": [
+                            "",
+                            "Airline"
+                        ],
+                        "selected": {},
+                        "show": true,
+                        "padding": 5,
+                        "itemGap": 10,
+                        "itemWidth": 25,
+                        "itemHeight": 14,
+                        "backgroundColor": "transparent",
+                        "borderColor": "#ccc",
+                        "borderRadius": 0,
+                        "pageButtonItemGap": 5,
+                        "pageButtonPosition": "end",
+                        "pageFormatter": "{current}/{total}",
+                        "pageIconColor": "#2f4554",
+                        "pageIconInactiveColor": "#aaa",
+                        "pageIconSize": 15,
+                        "animationDurationUpdate": 800,
+                        "selector": false,
+                        "selectorPosition": "auto",
+                        "selectorItemGap": 7,
+                        "selectorButtonGap": 10
+                    }
+                ],
+                "tooltip": {
+                    "show": true,
+                    "trigger": "item",
+                    "triggerOn": "mousemove|click",
+                    "axisPointer": {
+                        "type": "line"
+                    },
+                    "showContent": true,
+                    "alwaysShowContent": false,
+                    "showDelay": 0,
+                    "hideDelay": 100,
+                    "enterable": false,
+                    "confine": false,
+                    "appendToBody": false,
+                    "transitionDuration": 0.4,
+                    "formatter": function (params) {        return params.name + ' : ' + params.value[2];    },
+                    "textStyle": {
+                        "fontSize": 14
+                    },
+                    "borderWidth": 0,
+                    "padding": 5,
+                    "order": "seriesAsc"
+                },
+                "title": [
+                    {
+                        "show": true,
+                        "text": "\u5168\u56fd\u4e3b\u8981\u57ce\u5e02\u822a\u73ed\u8def\u7ebf\u548c\u673a\u573a",
+                        "target": "blank",
+                        "subtarget": "blank",
+                        "padding": 5,
+                        "itemGap": 10,
+                        "textAlign": "auto",
+                        "textVerticalAlign": "auto",
+                        "triggerEvent": false
+                    }
+                ],
+                "geo": {
+                    "map": "china",
+                    "roam": true,
+                    "aspectScale": 0.75,
+                    "nameProperty": "name",
+                    "selectedMode": false,
+                    "itemStyle": {
+                        "color": "#323c48",
+                        "borderColor": "#111"
+                    },
+                    "emphasis": {}
+                }
+            };
+            chart_fabf224cd63346a1a96a1f096b41bf2d.setOption(option_fabf224cd63346a1a96a1f096b41bf2d);
+            </script>
+        <!-- </body> -->
+        <!-- </html> -->
+        
+    </div>
+    <script>
+        function generateMap() {
+            fetch('/generate_map')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('map-container').innerHTML = data;
+            });
+        }
+    </script>
+</body>
+</html>

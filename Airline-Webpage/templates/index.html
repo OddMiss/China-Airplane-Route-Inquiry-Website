@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script> -->
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.2.2/echarts.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@latest/dist/echarts.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/pyecharts/1.9.0/pyecharts.min.js"></script>
+    <!-- theme --><script src="https://cdn.jsdelivr.net/npm/echarts/theme/macarons.js"></script>
+    <!-- China map --><script type="text/javascript" src="https://assets.pyecharts.org/assets/maps/china.js"></script>
+    <!-- World map --><script type="text/javascript" src="https://assets.pyecharts.org/assets/maps/world.js"></script>
+    <!-- <script src="scripts/map_data.js"></script> -->
+    <!-- <script src="{{ url_for('static', filename='map_data.js') }}"></script> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div id="search-container">
+        <h1>Search Airline</h1>
+        <label for="begin_city">Begin City:</label><br>
+        <input type="text" id="begin_city" name="begincity" value="北京" style="width: 100px; height: 15px;"><br>
+        <label for="end_city">End City:</label><br>
+        <input type="text" id="end_city" name="endcity" value="深圳" style="width: 100px; height: 15px;"><br>
+        <button onclick="queryAirline()">Search</button><br>
+    </div>
+    <br>
+    <!-- <form method="post">
+        <input type="text" id="start_position" size="20" placeholder="Start position(default: 北京)" value="北京"><br>
+        <input type="text" id="end_position" size="20" placeholder="End position(default: 深圳)" value="深圳"><br>
+        <button type="submit">Generate map</button><br>
+    </form> -->
+
+    <div id="map-container">
+        <!-- Map will be displayed here -->
+    </div>
+
+    <!-- "This is a test container."<br>
+    <div id="test" style="width:1000px; height:600px;"></div><br>
+    <div id="Map" style="width:1000px; height:730px;"></div>
+    "This is a MapDiv container."<br>
+    <div id="MapDiv" style="width:1000px; height:730px;"></div><br>
+    "This is a test iframe."<br>
+    <iframe src="{{ url_for('static', filename='Geo_airline.html') }}" width="1100" height="800" frameborder="0"></iframe> -->
+
+    <script>
+        function queryAirline() {
+            var begin_city = document.getElementById("begin_city").value;
+            var end_city = document.getElementById("end_city").value;
+
+            // 发送 Ajax 请求到后端，获取地图数据
+            fetch('/generate_map', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ begin_city: begin_city, end_city: end_city }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error){
+                    alert(data.error); // Pop-up warning box
+                } else {
+                    // 渲染地图
+                    // console.log(data.tooltip)
+                    if (data.tooltip && typeof data.tooltip.formatter === 'string'){
+                        data.tooltip.formatter = new Function("return " + data.tooltip.formatter)();
+                    }
+                    var myChart = echarts.init(document.getElementById('map-container'));
+                    myChart.setOption(data);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
