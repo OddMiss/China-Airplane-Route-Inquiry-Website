@@ -67,6 +67,7 @@ Route information is not real-time and may change.
 ## Data Structure
 
 - City and coordinates with the airport [2]:
+
 | Field Name | Data Type | Description                      |
 |------------|-----------|----------------------------------|
 | City       | String    | Name of the city                |
@@ -74,6 +75,7 @@ Route information is not real-time and may change.
 | Longitude  | Float     | Longitude of the city (degrees) |
 
 - Domestic flight data:
+
 | Field Name        | Data Type | Description                          |
 |-------------------|-----------|--------------------------------------|
 | Departure City    | String    | City where the flight departs       |
