@@ -31,7 +31,7 @@ Processes:
 - Map display module: visualize the query results and the route path on the map. 
 - Front-end logic control: process user input and map interaction events, call the corresponding back-end API, and initiate a request.
 
-> ![alt text](image.png)
+> ![alt text](./Airline-Webpage/image.png)
 > 
 > (Demo, the front-end interface)
 
@@ -47,7 +47,7 @@ Processes:
 ### External Service Integration
 - Map service API: Integrated with the third-party map service pyecharts to realize the map display function of the route path.
 
-> ![alt text](image-1.png)
+> ![alt text](./Airline-Webpage/image-1.png)
 > 
 > (Backend Flask framework example code)
 
@@ -81,7 +81,7 @@ Route information is not real-time and may change.
 | Departure Airport  | String    | Airport from which the flight departs |
 | Arrival Airport    | String    | Airport at which the flight arrives  |
 
-> ![alt text](image-2.png)
+> ![alt text](./Airline-Webpage/image-2.png)
 > 
 > Data flow
 
